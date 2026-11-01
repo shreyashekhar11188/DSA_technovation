@@ -8,15 +8,12 @@ int main() {
     for (int i = 0; i < n; i++) {
         int x;
         cin >> x;
-
         mp[x]++;
-
         if (mp[x] > 1) {
             cout << "YES";
             return 0;
         }
     }
-
     cout << "NO";
     return 0;
 }
