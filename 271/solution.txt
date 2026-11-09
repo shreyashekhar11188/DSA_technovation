@@ -1,0 +1,33 @@
+class Solution {
+public:
+
+    string encode(vector<string>& s) {
+        string ans = "";
+
+        for (string str : s) {
+            ans += to_string(str.length()) + "/:" + str;
+        }
+
+        return ans;
+    }
+
+    vector<string> decode(string s) {
+        vector<string> ans;
+        int i = 0;
+
+        while (i < s.length()) {
+
+            int j = s.find("/:", i);
+
+            int len = stoi(s.substr(i, j - i));
+
+            string str = s.substr(j + 2, len);
+
+            ans.push_back(str);
+
+            i = j + 2 + len;
+        }
+
+        return ans;
+    }
+};
